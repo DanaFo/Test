@@ -16,6 +16,8 @@ void UTestAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 
 	DOREPLIFETIME_CONDITION_NOTIFY(UTestAttributeSet, Health, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UTestAttributeSet, MaxHealth, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UTestAttributeSet, MoveSpeed, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UTestAttributeSet, BaseMoveSpeed, COND_None, REPNOTIFY_Always);
 }
 
 void UTestAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth)
@@ -26,5 +28,17 @@ void UTestAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth)
 void UTestAttributeSet::OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth)
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UTestAttributeSet, MaxHealth, OldMaxHealth);
+
+}
+
+void UTestAttributeSet::OnRep_MoveSpeed(const FGameplayAttributeData& OldMoveSpeed)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UTestAttributeSet, MoveSpeed, OldMoveSpeed);
+
+}
+
+void UTestAttributeSet::OnRep_BaseMoveSpeed(const FGameplayAttributeData& OldBaseMoveSpeed)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UTestAttributeSet, BaseMoveSpeed, OldBaseMoveSpeed);
 
 }

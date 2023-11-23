@@ -33,11 +33,25 @@ public:
 	FGameplayAttributeData MaxHealth;
 	ATTRIBUTE_ACCESSORS(UTestAttributeSet, MaxHealth)
 
+	UPROPERTY(BlueprintReadOnly, Category = "Attributes", ReplicatedUsing = OnRep_MoveSpeed)
+	FGameplayAttributeData MoveSpeed;
+	ATTRIBUTE_ACCESSORS(UTestAttributeSet, MoveSpeed)
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Attributes", ReplicatedUsing = OnRep_BaseMoveSpeed)
+	FGameplayAttributeData BaseMoveSpeed;
+	ATTRIBUTE_ACCESSORS(UTestAttributeSet, BaseMoveSpeed)
+
 	UFUNCTION()
 	virtual void OnRep_Health(const FGameplayAttributeData& OldHealth);
 
 	UFUNCTION()
 	virtual void OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth);
+
+	UFUNCTION()
+	virtual void OnRep_MoveSpeed(const FGameplayAttributeData& OldMoveSpeed);
+	
+	UFUNCTION()
+	virtual void OnRep_BaseMoveSpeed(const FGameplayAttributeData& OldBaseMoveSpeed);
 
 	
 };
