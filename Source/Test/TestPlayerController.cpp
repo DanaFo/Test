@@ -22,6 +22,8 @@ ATestPlayerController::ATestPlayerController()
 	FollowTime = 0.f;
 }
 
+
+
 void ATestPlayerController::BeginPlay()
 {
 	// Call the base class  
@@ -122,4 +124,11 @@ void ATestPlayerController::OnTouchReleased()
 {
 	bIsTouch = false;
 	OnSetDestinationReleased();
+}
+
+void ATestPlayerController::OverrideClickedDestination(const FVector& NewLocation)
+{
+	CachedDestination = NewLocation;
+	UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, NewLocation);
+
 }
