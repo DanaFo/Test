@@ -34,7 +34,7 @@ public:
 	virtual void GiveDefaultAbilities();
 	
 	UPROPERTY()
-	class UTestAttributeSet* AttributeSet;
+	const UTestAttributeSet* AttributeSet;
 
 	// default gameplay attribute value setter
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Abilties")
@@ -46,9 +46,22 @@ public:
 	
 	// set initial values for stats/attributes
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category= "Attributes")
-	int MaxHealth = 100;
+	int MaxHealth = 200;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category= "Attributes")
+	int BaseHealth = 100;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category= "Attributes")
+	int Health = 100;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category= "Attributes")
+	float MoveSpeed = 100;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category= "Attributes")
+	float BaseMoveSpeed = 100;
 	
 
 
 };
 
+// https://github.com/Pantong51/GASContent/blob/master/Tutorial_Attribute_Delegates.md
