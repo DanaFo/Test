@@ -21,9 +21,10 @@ public:
 
 	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	
-	// Called every frame.
-	virtual void Tick(float DeltaSeconds) override;
 
+	virtual void Tick(float DeltaSeconds) override;
+	virtual void BeginPlay() override;
+	
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Abilities, meta = (AllowPrivateAccess = "true"))
 	class UAbilitySystemComponent* AbilitySystemComponent;
@@ -32,6 +33,7 @@ public:
 	virtual void OnRep_PlayerState() override;
 	virtual void InitializeAttributes();
 	virtual void GiveDefaultAbilities();
+
 	
 	UPROPERTY()
 	const UTestAttributeSet* AttributeSet;
@@ -43,6 +45,12 @@ public:
 	// the list of default abilities for base character
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Abilties")
 	TArray<TSubclassOf<UGameplayAbility>> DefaultAbilities;
+
+	UFUNCTION(BlueprintCallable, Category = "Attributes")
+	float GetHealth() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Attributes")
+	float GetMoveSpeed() const;
 	
 	// set initial values for stats/attributes
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category= "Attributes")
@@ -60,6 +68,8 @@ public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category= "Attributes")
 	float BaseMoveSpeed = 100;
 	
+
+protected:
 
 
 };

@@ -8,6 +8,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "TestAttributeSet.h"
+#include "TestCharacterPC.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Materials/Material.h"
 #include "Engine/World.h"
@@ -29,6 +30,7 @@ ATestCharacter::ATestCharacter()
 
 	
 }
+
 
 void ATestCharacter::InitializeAttributes()
 {
@@ -61,3 +63,27 @@ void ATestCharacter::Tick(float DeltaSeconds)
     Super::Tick(DeltaSeconds);
 }
 
+void ATestCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
+float ATestCharacter::GetHealth() const
+{
+	if (AttributeSet)
+	{
+		return AttributeSet->GetHealth();
+	}
+
+	return 0.0f;
+}
+
+float ATestCharacter::GetMoveSpeed() const
+{
+	if (AttributeSet)
+	{
+		return AttributeSet->GetMoveSpeed();
+	}
+
+	return 0.0f;
+}
