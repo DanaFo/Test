@@ -8,6 +8,7 @@
 
 UTestAttributeSet::UTestAttributeSet()
 {
+	
 }
 
 void UTestAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

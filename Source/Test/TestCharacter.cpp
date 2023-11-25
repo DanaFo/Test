@@ -82,8 +82,10 @@ float ATestCharacter::GetMoveSpeed() const
 {
 	if (AttributeSet)
 	{
+
 		return AttributeSet->GetMoveSpeed();
 	}
 
 	return 0.0f;
 }
+

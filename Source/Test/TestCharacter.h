@@ -51,7 +51,13 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
 	float GetMoveSpeed() const;
-	
+
+	// UFUNCTION(BlueprintCallable, Category = "Attributes")
+	// float SetHealth(float NewValue) const;
+	//
+	// UFUNCTION(BlueprintCallable, Category = "Attributes")
+	// float SetMoveSpeed(float NewValue) const;
+
 	// set initial values for stats/attributes
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category= "Attributes")
 	int MaxHealth = 200;
