@@ -12,7 +12,7 @@
 #include "TestCharacter.generated.h"
 
 UCLASS(config=Game)
-class ATestCharacter : public ACharacter, public IAbilitySystemInterface
+class ATestCharacter : public ACharacter, public IAbilitySystemInterface, public IGameplayTagAssetInterface
 {
 	GENERATED_BODY()
 
@@ -20,12 +20,20 @@ public:
 	ATestCharacter();
 
 	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
-	
+
 
 	virtual void Tick(float DeltaSeconds) override;
 	virtual void BeginPlay() override;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameplayTags")
+	FGameplayTagContainer GameplayTags;
 
+	virtual void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override { TagContainer = GameplayTags; return; }
+
+	// UFUNCTION(Blueprintable)
+	// virtual void AppendTags(FGameplayTagContainer const& Other);
+	//
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Abilities, meta = (AllowPrivateAccess = "true"))
 	class UAbilitySystemComponent* AbilitySystemComponent;
 

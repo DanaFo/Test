@@ -68,6 +68,11 @@ void ATestCharacter::BeginPlay()
 	Super::BeginPlay();
 }
 
+// void ATestCharacter::AppendTags(FGameplayTagContainer const& Other)
+// {
+// 	
+// }
+
 float ATestCharacter::GetHealth() const
 {
 	if (AttributeSet)
