@@ -23,6 +23,7 @@ ATestCharacterPC::ATestCharacterPC()
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 640.f, 0.f);
 	GetCharacterMovement()->bConstrainToPlane = true;
 	GetCharacterMovement()->bSnapToPlaneAtStart = true;
+	
 }
 	
 	void ATestCharacter::PossessedBy(AController* NewController)
